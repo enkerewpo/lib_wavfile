@@ -8,16 +8,16 @@ Go ahead and modify this program for your own purposes.
 */
 
 
-#include <stdio.h>
-#include <math.h>
-#include <stdlib.h>
-#include <time.h>
-#include <string.h>
-#include <errno.h>
+#include <cstdio>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+#include <cstring>
+#include <cerrno>
 
 #include "wavfile.h"
 
-const int NUM_SAMPLES = (WAVFILE_SAMPLES_PER_SECOND*2);
+const int NUM_SAMPLES = (WAVFILE_SAMPLES_PER_SECOND * 2);
 
 int main()
 {
@@ -29,12 +29,12 @@ int main()
 	int i;
 	for(i=0;i<length;i++) {
 		double t = (double) i / WAVFILE_SAMPLES_PER_SECOND;
-		waveform[i] = volume*sin(frequency*t*2*M_PI);
+		waveform[i] = volume * sin(frequency * t * 2 * M_PI);
 	}
 
-	FILE * f = wavfile_open("sound.wav");
+	FILE *f = wavfile_open("sound.wav");
 	if(!f) {
-		printf("couldn't open sound.wav for writing: %s",strerror(errno));
+		printf("couldn't open sound.wav for writing: %s", strerror(errno));
 		return 1;
 	}
 

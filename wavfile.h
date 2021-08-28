@@ -13,8 +13,8 @@ http://www.nd.edu/~dthain/courses/cse20211/fall2013/wavfile
 
 #pragma warning(disable : 4996)
 
-#include <stdio.h>
-#include <inttypes.h>
+#include <cstdio>
+#include <cinttypes>
 #include <cmath>
 
 const double M_PI = acos(-1.);

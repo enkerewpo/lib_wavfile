@@ -10,9 +10,9 @@ http://www.nd.edu/~dthain/courses/cse20211/fall2013/wavfile
 
 #include "wavfile.h"
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
 
 struct wavfile_header {
 	char	riff_tag[4];
