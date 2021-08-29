@@ -16,18 +16,18 @@ http://www.nd.edu/~dthain/courses/cse20211/fall2013/wavfile
 
 struct wavfile_header {
 	char	riff_tag[4];
-	int	riff_length;
+	int		riff_length;
 	char	wave_tag[4];
 	char	fmt_tag[4];
-	int	fmt_length;
+	int		fmt_length;
 	short	audio_format;
 	short	num_channels;
-	int	sample_rate;
-	int	byte_rate;
+	int		sample_rate;
+	int		byte_rate;
 	short	block_align;
 	short	bits_per_sample;
 	char	data_tag[4];
-	int	data_length;
+	int		data_length;
 };
 
 FILE * wavfile_open( const char *filename )
@@ -37,10 +37,10 @@ FILE * wavfile_open( const char *filename )
 	int samples_per_second = WAVFILE_SAMPLES_PER_SECOND;
 	int bits_per_sample = 16;
 
-	strncpy(header.riff_tag,"RIFF",4);
-	strncpy(header.wave_tag,"WAVE",4);
-	strncpy(header.fmt_tag,"fmt ",4);
-	strncpy(header.data_tag,"data",4);
+	strncpy(header.riff_tag, "RIFF", 4);
+	strncpy(header.wave_tag, "WAVE", 4);
+	strncpy(header.fmt_tag, "fmt ", 4);
+	strncpy(header.data_tag, "data", 4);
 
 	header.riff_length = 0;
 	header.fmt_length = 16;
@@ -65,7 +65,7 @@ FILE * wavfile_open( const char *filename )
 
 void wavfile_write( FILE *file, short data[], int length )
 {
-	fwrite(data,sizeof(short),length,file);
+	fwrite(data, sizeof(short), length, file);
 }
 
 void wavfile_close( FILE *file )
@@ -73,12 +73,12 @@ void wavfile_close( FILE *file )
 	int file_length = ftell(file);
 
 	int data_length = file_length - sizeof(struct wavfile_header);
-	fseek(file,sizeof(struct wavfile_header) - sizeof(int),SEEK_SET);
-	fwrite(&data_length,sizeof(data_length),1,file);
+	fseek(file, sizeof(struct wavfile_header) - sizeof(int), SEEK_SET);
+	fwrite(&data_length, sizeof(data_length), 1, file);
 
 	int riff_length = file_length - 8;
-	fseek(file,4,SEEK_SET);
-	fwrite(&riff_length,sizeof(riff_length),1,file);
+	fseek(file, 4, SEEK_SET);
+	fwrite(&riff_length, sizeof(riff_length), 1, file);
 
 	fclose(file);
 }

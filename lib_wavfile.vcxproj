@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="example.cc" />
+    <ClCompile Include="main.cc" />
     <ClCompile Include="wavfile.cc" />
   </ItemGroup>
   <ItemGroup>
