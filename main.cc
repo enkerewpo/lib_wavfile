@@ -22,14 +22,15 @@ const int NUM_SAMPLES = (WAVFILE_SAMPLES_PER_SECOND * 2);
 int main()
 {
 	short waveform[NUM_SAMPLES];
-	double frequency = 440.0;
+	memset(waveform, 0, sizeof waveform);
+	double frequency = 440.0; // note C4 frequency
 	int volume = 32000;
 	// int length = NUM_SAMPLES;
-	int length = 100;
+	int length = 109;
 
 	for(int i = 0; i < length; i++) {
 		double t = (double) i / WAVFILE_SAMPLES_PER_SECOND;
-		waveform[i] = volume * sin(frequency * t * 2 * M_PI);
+		waveform[i] += volume * sin(frequency * t * 2 * M_PI);
 	}
 
 	FILE *f = wavfile_open("sound.wav");
