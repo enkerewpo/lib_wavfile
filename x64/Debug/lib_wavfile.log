@@ -1,3 +1,5 @@
 ﻿  main.cc
-D:\GitHub\lib_wavfile\main.cc(33,56): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
+D:\GitHub\lib_wavfile\main.cc(33,25): warning C4244: '+=': conversion from 'double' to 'short', possible loss of data
+  wavfile.cc
+  Generating Code...
   lib_wavfile.vcxproj -> D:\GitHub\lib_wavfile\x64\Debug\lib_wavfile.exe

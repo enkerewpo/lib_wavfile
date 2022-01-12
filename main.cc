@@ -33,7 +33,7 @@ int main()
 		waveform[i] += volume * sin(frequency * t * 2 * M_PI);
 	}
 
-	FILE *f = wavfile_open("sound.wav");
+	FILE *f = wavfile_open("mion.wav");
 	if(!f) {
 		printf("couldn't open sound.wav for writing: %s", strerror(errno));
 		return 1;

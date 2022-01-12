@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "ab9d89d1-f20b-471f-9a7a-eb3676eb63fc": {
+      "ProjectGuid": "ab9d89d1-f20b-471f-9a7a-eb3676eb63fc",
+      "DisplayName": "lib_wavfile",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
