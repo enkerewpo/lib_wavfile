@@ -30,8 +30,7 @@ struct wavfile_header {
 	int		data_length;
 };
 
-FILE * wavfile_open( const char *filename )
-{
+FILE * wavfile_open(const char *filename) {
 	struct wavfile_header header;
 
 	int samples_per_second = WAVFILE_SAMPLES_PER_SECOND;
@@ -55,7 +54,7 @@ FILE * wavfile_open( const char *filename )
 	FILE * file = fopen(filename, "wb+");
 	if(!file) return 0;
 
-	fwrite(&header,sizeof(header),1,file);
+	fwrite(&header, sizeof(header), 1, file);
 
 	fflush(file);
 
@@ -63,13 +62,11 @@ FILE * wavfile_open( const char *filename )
 
 }
 
-void wavfile_write( FILE *file, short data[], int length )
-{
+void wavfile_write(FILE *file, short data[], int length) {
 	fwrite(data, sizeof(short), length, file);
 }
 
-void wavfile_close( FILE *file )
-{
+void wavfile_close(FILE *file) {
 	int file_length = ftell(file);
 
 	int data_length = file_length - sizeof(struct wavfile_header);
